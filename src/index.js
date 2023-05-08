@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // index.html mei jo bhi likha hai use root ke mei daaldo (query selector ka use kiya hai ) fr us root ko render
+  // krdo and use app mei daaldo
   <React.StrictMode>
     <App />
   </React.StrictMode>
