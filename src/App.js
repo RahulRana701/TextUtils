@@ -46,6 +46,17 @@ function App() {
       document.title = 'textutils-LightMode'
     }
   }
+  // but when we apply classes the class once set doesn't get removed we want ki jb jis color pe kre click vo aaje.
+  // for that we have to make a remove function.
+  const classremove=()=>{
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-primary')
+  }
+  const togglemode2=(cls)=>{
+    classremove();
+   document.body.classList.add('bg-'+cls);
+  }
   return (
     <>
 
@@ -81,7 +92,7 @@ function App() {
 
 
       <Router>
-        <Navbar title="TextUtils" abouttext="ABOUT" mode={mode} togglemode={togglemode} />
+        <Navbar title="TextUtils" abouttext="ABOUT" mode={mode} togglemode={togglemode} togglemode2={togglemode2} />
         <Alert alert={alert} />
         {/* this is also good but try to write exact before path to match exact file , because sometimes, if file
         has /user and /user/home and you want to go in second one , then react may take you to first one so therefore
@@ -94,7 +105,7 @@ function App() {
             element={<Navbar title="TextUtils" abouttext="ABOUT" mode={mode} togglemode={togglemode} />}>
           </Route>
           <Route exact path="/about"
-            element={<About />}>
+            element={<About mode={mode} />}>
           </Route>
         </Routes>
       </Router>

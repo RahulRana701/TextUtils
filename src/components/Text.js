@@ -75,10 +75,12 @@ export default function Text(props) {
                 <h2>Your text summary</h2>
                 {/* means empty elements na lao , jo empty elements nhi hai , vo hi array mei daalo. */}
                 {/* filter naam ka ek function banaya ise fix krne ke liye. */}
-                <p>{text.split(' ').filter((element) => { return element.length != 0 }).length} words and {text.length} characters</p>
+                {/* this means kisi bhi new space ke liye including new line + one extra space */}
+                <p>{text.split(/\s+/).filter((element) => { return element.length != 0 }).length} words and {text.length} characters</p>
             </div>
         </>
     )
 }
 
 // there are various events and we can make various states , here we just made one state.
+// \s is for any white space including new line 

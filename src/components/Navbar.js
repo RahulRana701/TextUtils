@@ -31,7 +31,20 @@ export default function Navbar(props) {
                         </li>
                     </ul>
                     {/* used turnary operator here like if it is light make text dark and vicecersa */}
-                    <div className={`form-check form-switch text-${props.mode ==='light' ? 'dark':'light'}`}>
+                    <div className="d-flex">
+                        {/* on click can have function not a function call that's we made a function in click
+                        that have a function call */}
+                        <div className="bg-primary rounded mx-2" onClick={() => {
+                            props.togglemode2('primary')
+                        }} style={{ height: '30px', width: '30px' }}></div>
+                        <div className="bg-danger rounded mx-2" onClick={() => {
+                            props.togglemode2('danger')
+                        }} style={{ height: '30px', width: '30px' }}></div>
+                        <div className="bg-success rounded mx-2" onClick={() => {
+                            props.togglemode2('success')
+                        }} style={{ height: '30px', width: '30px' }}></div>
+                    </div>
+                    <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                         <input className="form-check-input" type="checkbox" onClick={props.togglemode} role="switch" id="flexSwitchCheckDefault" />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
                     </div>
